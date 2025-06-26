@@ -155,10 +155,15 @@ public class GamePanel extends JPanel implements ActionListener {
                         timer.stop();
                         repaint();
                     }
+                    case KeyEvent.VK_SPACE->{
+                        gameState = GameState.PAUSED;
+                        timer.stop();
+                        repaint();
+                    }
                 }
             }
             else if(gameState==GameState.PAUSED){
-                if(e.getKeyCode()==KeyEvent.VK_P){
+                if(e.getKeyCode()==KeyEvent.VK_P||e.getKeyCode()==KeyEvent.VK_SPACE){
                     gameState=GameState.PLAYING;
                     timer.start();
                 }
